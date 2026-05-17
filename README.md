@@ -1,16 +1,100 @@
-# React + Vite
+# Timekeeper — Stopwatch & Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A polished stopwatch and countdown timer built with React and Vite. Switch between modes with tabs, set a custom timer duration, and use start, pause, and reset controls on each.
 
-Currently, two official plugins are available:
+**Live demo:** [https://stopwatch-timer-sandy.vercel.app/](https://stopwatch-timer-sandy.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+### Stopwatch
+- **Count up** — tracks elapsed time with centisecond precision
+- **Start / Pause / Reset** — full control over the stopwatch
+- **Clear display** — `MM:SS.CS` format (adds hours when needed)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Timer
+- **Custom duration** — set hours, minutes, and seconds before starting
+- **Countdown** — visual progress bar as time runs down
+- **Start / Pause / Reset** — pause mid-countdown and reset to the set duration
+- **Time's up** — message when the countdown reaches zero
 
-## Expanding the ESLint configuration
+### UI & UX
+- Tab navigation between Stopwatch and Timer
+- Dark theme with responsive layout
+- Accessible controls and live time updates
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or newer recommended)
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run in development
+
+```bash
+npm run dev
+```
+
+Open the URL shown in the terminal (usually `http://localhost:5173`).
+
+### Build for production
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## How to use
+
+### Stopwatch
+1. Open the **Stopwatch** tab.
+2. Click **Start** to begin counting.
+3. Click **Pause** to stop temporarily, or **Reset** to clear back to zero.
+
+### Timer
+1. Open the **Timer** tab.
+2. Enter hours, minutes, and seconds (default is 5 minutes).
+3. Click **Start** to begin the countdown.
+4. Click **Pause** to hold the remaining time, or **Reset** to restore the set duration.
+
+## Project structure
+
+```
+src/
+├── App.jsx                  # Tab navigation and layout
+├── App.css                  # App styling
+├── components/
+│   ├── Stopwatch.jsx        # Stopwatch panel
+│   ├── Timer.jsx            # Timer panel with inputs
+│   ├── TimeDisplay.jsx      # Formatted time display
+│   └── Controls.jsx         # Start, pause, reset buttons
+├── hooks/
+│   ├── useStopwatch.js      # Stopwatch state and timing logic
+│   └── useTimer.js          # Timer state and countdown logic
+└── utils/
+    └── formatTime.js        # Format and parse time values
+```
+
+## Tech stack
+
+- [React](https://react.dev/)
+- [Vite](https://vite.dev/)
+
+## Scripts
+
+| Command           | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Start development server |
+| `npm run build`   | Build for production     |
+| `npm run preview` | Preview production build |
+| `npm run lint`    | Run ESLint               |
