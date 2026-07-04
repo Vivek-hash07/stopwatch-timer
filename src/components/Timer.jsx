@@ -31,6 +31,14 @@ export default function Timer() {
     applyInput();
   }
 
+  function setPresetTime(seconds) {
+    if (isRunning) return;
+    updateInput('hours', '0');
+    updateInput('minutes', '0');
+    updateInput('seconds', String(seconds));
+    applyInput();
+  }
+
   return (
     <section className="panel" aria-label="Timer">
       <div className="timer-progress" aria-hidden="true">
@@ -93,6 +101,72 @@ export default function Timer() {
           </label>
         </div>
       </fieldset>
+
+      <div className="preset-buttons" style={{ marginBottom: '1rem', textAlign: 'center' }}>
+        <p style={{ fontSize: '0.875rem', color: '#666', marginBottom: '0.5rem' }}>Quick presets:</p>
+        <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button
+            type="button"
+            onClick={() => setPresetTime(5)}
+            disabled={isRunning}
+            style={{
+              padding: '0.4rem 0.8rem',
+              fontSize: '0.875rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: isRunning ? 'not-allowed' : 'pointer',
+              opacity: isRunning ? 0.5 : 1,
+            }}
+          >
+            5s
+          </button>
+          <button
+            type="button"
+            onClick={() => setPresetTime(30)}
+            disabled={isRunning}
+            style={{
+              padding: '0.4rem 0.8rem',
+              fontSize: '0.875rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: isRunning ? 'not-allowed' : 'pointer',
+              opacity: isRunning ? 0.5 : 1,
+            }}
+          >
+            30s
+          </button>
+          <button
+            type="button"
+            onClick={() => setPresetTime(60)}
+            disabled={isRunning}
+            style={{
+              padding: '0.4rem 0.8rem',
+              fontSize: '0.875rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: isRunning ? 'not-allowed' : 'pointer',
+              opacity: isRunning ? 0.5 : 1,
+            }}
+          >
+            1m
+          </button>
+          <button
+            type="button"
+            onClick={() => setPresetTime(300)}
+            disabled={isRunning}
+            style={{
+              padding: '0.4rem 0.8rem',
+              fontSize: '0.875rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: isRunning ? 'not-allowed' : 'pointer',
+              opacity: isRunning ? 0.5 : 1,
+            }}
+          >
+            5m
+          </button>
+        </div>
+      </div>
 
       <Controls
         isRunning={isRunning}
